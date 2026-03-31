@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeHub - Easy Cooking Recipes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>🍳 RecipeHub</h1>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="🔍 Search recipes...">
+        </div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="reciepe1.html">Paneer Butter Masala</a>
+            <a href="reciepe2.html">Veg Biryani</a>
+            <a href="reciepe3.html">Pasta</a>
+            <a href="reciepe4.html">Chocolate Cake</a>
+            <a href="reciepe5.html">Sandwich</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Welcome to RecipeHub</h2>
+            <p>Discover a collection of simple, delicious recipes that you can easily prepare at home. Whether you're a beginner or an experienced cook, find your favorite dishes and enjoy the cooking journey. From traditional Indian cuisine to international favorites, we have something for everyone.</p>
+        </section>
+        <section>
+            <h2>Featured Recipes</h2>
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterRecipes('all')">All Recipes</button>
+                <button class="filter-btn" onclick="filterRecipes('veg')">🥬 Vegetarian</button>
+                <button class="filter-btn" onclick="filterRecipes('nonveg')">🍗 Non-Vegetarian</button>
+                <button class="filter-btn" onclick="filterRecipes('dessert')">🍰 Desserts</button>
+            </div>
+            <div class="cards">
+                <div class="card" data-category="veg">
+                    <div class="category-badge">Vegetarian</div>
+                    <img src="images/Paneer Butter Masala.jpg" alt="Paneer Butter Masala">
+                    <div class="card-content">
+                        <h3>Paneer Butter Masala</h3>
+                        <p class="card-info">🕐 30 minutes | 📊 Easy</p>
+                        <p>Creamy, delicious paneer cheese in a rich tomato-based sauce.</p>
+                        <a href="reciepe1.html" class="btn">View Recipe</a>
+                    </div>
+                </div>
+                <div class="card" data-category="veg">
+                    <div class="category-badge">Vegetarian</div>
+                    <img src="images/Veg Biryani.jpg" alt="Veg Biryani">
+                    <div class="card-content">
+                        <h3>Veg Biryani</h3>
+                        <p class="card-info">🕐 40 minutes | 📊 Medium</p>
+                        <p>Fragrant and aromatic vegetable rice cooked to perfection.</p>
+                        <a href="reciepe2.html" class="btn">View Recipe</a>
+                    </div>
+                </div>
+                <div class="card" data-category="veg">
+                    <div class="category-badge">Vegetarian</div>
+                    <img src="images/Pasta.jpg" alt="Pasta">
+                    <div class="card-content">
+                        <h3>Pasta</h3>
+                        <p class="card-info">🕐 25 minutes | 📊 Easy</p>
+                        <p>Classic Italian pasta with homemade tomato sauce and cheese.</p>
+                        <a href="reciepe3.html" class="btn">View Recipe</a>
+                    </div>
+                </div>
+                <div class="card" data-category="dessert">
+                    <div class="category-badge">Dessert</div>
+                    <img src="images/Chocolate Cake.jpg" alt="Chocolate Cake">
+                    <div class="card-content">
+                        <h3>Chocolate Cake</h3>
+                        <p class="card-info">🕐 50 minutes | 📊 Medium</p>
+                        <p>Rich, moist chocolate cake that's perfect for any occasion.</p>
+                        <a href="reciepe4.html" class="btn">View Recipe</a>
+                    </div>
+                </div>
+                <div class="card" data-category="veg">
+                    <div class="category-badge">Vegetarian</div>
+                    <img src="images/Veg Mayonnaise Sandwich.jpg" alt="Sandwich">
+                    <div class="card-content">
+                        <h3>Sandwich</h3>
+                        <p class="card-info">🕐 10 minutes | 📊 Easy</p>
+                        <p>Quick and tasty sandwich loaded with fresh vegetables and cheese.</p>
+                        <a href="reciepe5.html" class="btn">View Recipe</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 RecipeHub | Your Go-To Cooking Companion</p>
+    </footer>
+    <script>
+        function filterRecipes(category) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else if (card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else {
+                    card.style.display = 'none';
+                    card.classList.remove('fade-in');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
